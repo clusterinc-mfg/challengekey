@@ -4,7 +4,21 @@ import {
     FieldValue
 } from './ProgramInfoBanner.styles'
 
-const ProgramInfoBanner = ({schoolType, requiredCredits, costPerCredit,deliveryMode, degreeType}) => (
+interface ProgramInfoBannerProps {
+    schoolType:string;
+    requiredCredits:number
+    costPerCredit:number;
+    deliveryMode:string;
+    degreeType:string;
+}
+
+const ProgramInfoBanner = (
+    {schoolType, 
+    requiredCredits, 
+    costPerCredit,
+    deliveryMode, 
+    degreeType
+}:ProgramInfoBannerProps) => (
     <BannerWrapper>
         <FieldTitle>Delivery</FieldTitle>
         <FieldTitle>School Type</FieldTitle>

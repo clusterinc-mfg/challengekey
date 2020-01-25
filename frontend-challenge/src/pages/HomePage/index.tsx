@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { shallowEqual, useSelector } from 'react-redux';
 
-import { useLazyQuery, useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
 import BottomBar from '../../components/BottomBar/BottomBar';
 import FilterMenu from '../../components/FilterMenu/FilterMenu';
@@ -13,6 +13,8 @@ import { ProgramContainer, ResultsHeader } from './HomePage.styles';
 
 //TODO: Build the home page
 /*
+  add appropriate types
+
   renderProgramContainer:  
     *   Finish the function renderHeader.  If a search term is present, it should return
         "129 Items For Engineering!" where 129 is the number of items and engineering is the search term.
@@ -30,7 +32,7 @@ import { ProgramContainer, ResultsHeader } from './HomePage.styles';
 
     *  Pull the term and filter from the redux store
 
-    *  Create a piece of state for the page vairable
+    *  Create a piece of state called page
 
     *  Inside of the layout component render the FilterMenu, ProgramContainer, and BottomBar
 
@@ -38,19 +40,19 @@ import { ProgramContainer, ResultsHeader } from './HomePage.styles';
 
 */
 
-const renderProgramContainer = (programs, count, term = null) => {
+const renderProgramContainer = (programs:any[], count:number, term:string | null = null) => {
   const renderPrograms = programs =>
     programs.map((program, i) => (
-      <ProgramRow key={program.id + program.name + i} program={program} />
+      <ProgramRow key={program.id + program.name} program={program} />
     ));
 
   // write the renderHeader function
-  const renderHeader = (count, term) =>
+  const renderHeader = () =>
     term ? `${count} items found for ${term}!` : `${count} items found!`;
 
   return (
     <ProgramContainer>
-      <ResultsHeader>{renderHeader(count, term)}</ResultsHeader>
+      <ResultsHeader>{renderHeader()}</ResultsHeader>
       {/* Render the list of programs here using a function called renderPrograms */}
       {renderPrograms(programs)}
     </ProgramContainer>
@@ -58,8 +60,6 @@ const renderProgramContainer = (programs, count, term = null) => {
 };
 
 const HomePage = () => {
-  let count = 0;
-  let programs = [];
   const itemsPerPage = 10;
 
   const [page, setPage] = useState(1);
@@ -81,20 +81,18 @@ const HomePage = () => {
   // supply that query with the offest, limit, term, and filter options
   const { loading, data } = useQuery(PROGRAM_SEARCH, { variables });
 
-  if (!loading) {
-    count = data.programSearch.count;
-    programs = data.programSearch.programs;
-  }
+  const returnCount = () => !loading ? data.programSearch.count : 0
+  const returnPrograms = () => !loading ? data.programSearch.programs : []
 
   return (
     <Layout>
       <FilterMenu /> 
 {/* Filter Menu goes here */}
-      {loading ? <Spinner /> : renderProgramContainer(programs, count, term)}
+      {loading ? <Spinner /> : renderProgramContainer(returnPrograms(), returnCount(), term)}
 {/* Spinner or programs container */}
 {/* Bottom Bar */}
       <BottomBar
-        count={count}
+        count={returnCount()}
         page={page}
         setPage={setPage}
         itemsPerPage={itemsPerPage}

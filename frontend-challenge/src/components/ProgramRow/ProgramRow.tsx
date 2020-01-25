@@ -15,6 +15,11 @@ import {
 
 const ProgramRow = ({program: {school, degreeType, deliveryMode, name, id, costPerCredit}}) => {
 
+  //TODO: route to program detail page
+  /*
+    When the container is clicked on it should route to /programDetail
+    and pass a query parameter id with the program id
+  */
 
   return(
     <Link href={`/programDetail?id=${id}`}>

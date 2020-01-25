@@ -1,14 +1,12 @@
 import gql from 'graphql-tag';
 
 // TODO: Write GraphQL Queries
+//GraphQL playground is running on localhost:4000/gql
 /*
     PROGRAM_SEARCH:
         Create a named export called PROGRAM_SEARCH.  
-        this should contain a query called programSearch.
-        the query should take in one parameter called data.
-        data should have the type ProgramSearchTermInput
 
-        this query should return the count, and a list of programs
+        this query should return the count, and programs
         from the programs, it should retrieve id, name, degreeType, 
         deliveryMode, requiredCredits costPerCredit, and school.  
         From the school it should retrieve name, schoolLogo, 
@@ -16,9 +14,7 @@ import gql from 'graphql-tag';
 
     GET_PROGRAM:
         Create a named export called GET_PROGRAM.
-        this should contain a query called program.
-        the query should take in one parameter called data.
-        data should have the type ProgramInput.
+        It should use the program id to retrieve an individual program.
 
         this query should return the following fields: id, 
         name, costPerCredit, programUrl, programDescription,
@@ -27,6 +23,9 @@ import gql from 'graphql-tag';
         name, schoolLogo, backgroundColor, gradientColor, 
         schoolDescription, and schoolType
 */
+
+
+
 
 
 export const PROGRAM_SEARCH = gql`

@@ -13,6 +13,9 @@ import { GET_PROGRAM } from '../../graphQL/queries';
 
 //TODO: Build the School Page page
 /* 
+  the page should be routed to with a parameter id which
+  corrisponds to the id of the program which will be displayed
+
   renderBody:
     * should set the title of the page to the name of the program
     * should render the school banner

@@ -1,6 +1,13 @@
 import React, {useState} from 'react'
 
-import {Container, Spacer, Button, ButtonContainer} from './BottomBar.styles'
+import {Button, ButtonContainer, Container, Spacer} from './BottomBar.styles'
+
+interface BottomBarProps {
+  count: number;
+  page: number;
+  setPage: Function;
+  itemsPerPage: number;
+}
 
 const BottomBar = ({count, page, setPage, itemsPerPage}) => {
 

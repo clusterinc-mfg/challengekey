@@ -1,17 +1,29 @@
-
 import {
-    Wrapper,
     Card,
-    FieldWrapper,
     DescHeader,
     Description,
-    TuitionRow,
+    FieldWrapper,
     TuitionLabel,
-    TuitionValue
+    TuitionRow,
+    TuitionValue,
+    Wrapper
 } from './ProgramInfo.styles'
 
+interface ProgramInfoProps {
+    programDescription: string;
+    schoolDescription:string
+    schoolName:string;
+    costPerCredit:number
+    requiredCredits:number
+}
 
-const ProgramInfo = ({programDescription, schoolDescription, schoolName, costPerCredit, requiredCredits}) => (
+const ProgramInfo = ({
+    programDescription, 
+    schoolDescription, 
+    schoolName, 
+    costPerCredit, 
+    requiredCredits
+}:ProgramInfoProps) => (
     <Wrapper>
         <FieldWrapper>
             <DescHeader>Earn Your Degree</DescHeader>

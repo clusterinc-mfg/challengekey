@@ -35,7 +35,7 @@ export const FieldTitle = styled.p`
     margin-top: 1rem;
 `
 
-type FieldValueProps = {
+interface FieldValueProps {
     dmode?: boolean
 }
 

@@ -7,7 +7,7 @@ interface LayoutProps {
     children: any
 }
 
-const Layout:React.FC<LayoutProps> = ({children}) => (
+const Layout = ({children}:LayoutProps) => (
         <Container>
             <Header />
             {children}
