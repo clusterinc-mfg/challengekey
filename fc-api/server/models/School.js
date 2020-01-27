@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-//create a schoolSchema with the following types
+//TODO: Create a schoolSchema with the following types
 /*
     name = string
     programs = array of programs

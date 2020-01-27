@@ -5,11 +5,12 @@ import Query from './server/resolvers/Query'
 
 require('dotenv').config()
 
+//TODO: Create a connection to the mongodb database
 //see .env file for port and mongoURI
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 
 
-//setup a graphql server.
+//TODO: Setup a graphql server.
 //use the ./server/schema.graphql file and
 const server = new GraphQLServer({
     typeDefs: './server/schema.graphql',

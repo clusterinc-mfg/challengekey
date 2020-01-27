@@ -26,8 +26,6 @@ import gql from 'graphql-tag';
 
 
 
-
-
 export const PROGRAM_SEARCH = gql`
     query programSearch($data: ProgramSearchTermInput) {
         programSearch(data: $data){

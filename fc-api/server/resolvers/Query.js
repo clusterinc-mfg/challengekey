@@ -3,6 +3,7 @@ import db from 'mongodb'
 import Program from '../models/Program'
 import School from '../models/School'
 
+//TODO: Crate the program query 
 const program = async (parent, {data}, ctx, info) => {
     //should accept an id on the data param and return a single program with the school feild populated
     const {id} = data
@@ -10,6 +11,7 @@ const program = async (parent, {data}, ctx, info) => {
     return program
 }
 
+//TODO: create the program serch query
 const programSearch = async (parent, {data}, ctx, info) => {
     //should have optional params, term, filter, limit, and offset
     //if offset and limit are not provided set the defaults to offset = 0, limit = 0
